@@ -1,0 +1,8 @@
+users -> customers,admin user type
+orders
+order_items
+order_payments
+
+products 
+categories
+subcategories
