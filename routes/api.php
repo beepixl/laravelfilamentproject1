@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\HomeController;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\UserAuthController;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ Route::get('product', [HomeController::class, 'product']);
 
 Route::get('home', [HomeController::class, 'home']);
 
-
+Route::post('/new-order',[OrderController::class,'createOrder']);
 Route::group(['prefix' => 'product', 'middleware' => 'auth:api'], function () {
 
     Route::get('category/{category_id}', [ProductController::class, 'getProductsByCategory']);
