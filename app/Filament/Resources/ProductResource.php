@@ -4,9 +4,11 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Subcategory;
+
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -15,6 +17,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
+use Filament\Actions\ReplicateAction;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
@@ -42,9 +45,14 @@ class ProductResource extends Resource
 
 
                 Select::make('sub_category_id')
-                    ->options(fn (Get $get): Collection => SubCategory::query()
+                    ->options(fn(Get $get): Collection => SubCategory::query()
                         ->where('category_id', $get('category_id'))
                         ->pluck('name', 'id')),
+
+                Select::make('brand_id')
+                    ->label('Brand')
+                    ->options(Brand::all()->pluck('name', 'id'))
+                    ->searchable()->live(),
 
                 TextInput::make('price')->integer(),
                 RichEditor::make('description'),
@@ -66,6 +74,7 @@ class ProductResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ReplicateAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

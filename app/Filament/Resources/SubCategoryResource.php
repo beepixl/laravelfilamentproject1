@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,7 +32,9 @@ class SubCategoryResource extends Resource
                 Select::make('category_id')
                     ->label('Category')
                     ->options(Category::all()->pluck('name', 'id'))
-                    ->searchable()
+                    ->searchable(),
+                    Forms\Components\FileUpload::make('photo')
+                    ->image()->directory('category'),
             ]);
     }
 
@@ -40,6 +43,7 @@ class SubCategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
+                ImageColumn::make('photo'),
                 TextColumn::make('categories.name'),
             ])
             ->filters([

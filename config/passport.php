@@ -55,8 +55,11 @@ return [
     */
 
     'personal_access_client' => [
-        'id' => '9bc55de9-8873-450b-bef7-eb274a224693',
-        'secret' => 'TNxd4WiiDrfAan4NEUkNhxJAuStMi0woaZcQsUR9',
+        // 'id' => '9bc55de9-8873-450b-bef7-eb274a224693',
+        // 'secret' => 'TNxd4WiiDrfAan4NEUkNhxJAuStMi0woaZcQsUR9',
+
+        'id' => '9bd40e8a-82b5-48c6-8c13-66c621c7369b',
+        'secret' => 'tYzZu128AAtmLdaq1fhXAt9UpCYfjQjo6nm9sexv'
     ],
 
 ];
