@@ -7,7 +7,7 @@ use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\Subcategory;
+use App\Models\SubCategory;
 
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
