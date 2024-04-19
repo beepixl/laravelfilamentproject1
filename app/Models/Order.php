@@ -20,12 +20,12 @@ class Order extends Model
 
  public function orderItemsDetails(): HasMany
  {
-     return $this->hasMany(OrderItems::class,'id');
+     return $this->hasMany(OrderItems::class,'order_id');
  }
   
  public function orderPayment(): HasMany
  {
-     return $this->hasMany(OrderPayment::class,'id');
+     return $this->hasMany(OrderPayment::class,'order_id');
  }
 
 }

@@ -22,5 +22,10 @@ class OrderItems extends Model
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class,'order_id');
+    } 
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class,'item_id');
     }
 }
