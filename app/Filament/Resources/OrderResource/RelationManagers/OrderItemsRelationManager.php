@@ -90,10 +90,15 @@ class OrderItemsRelationManager extends RelationManager
                   $orderItems = OrderItems::where('order_id', $record->id)->where('item_id',$data['item_id'])->first(); 
                   if ($orderItems) {
                     $recipient = auth()->user();
+
+                    Notification::make()
+                    ->title('Item Already in USE')
+                    ->danger()
+                    ->send();
                     Notification::make()
                         ->title('Item Already in USE')
                         ->danger()
-                       ->toBroadcast($recipient);
+                       ->sendToDatabase($recipient);
                  $action->halt();
                 }
 
