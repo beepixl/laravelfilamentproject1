@@ -1,0 +1,4 @@
+ALTER TABLE `orders` ADD `payment_method` VARCHAR(200) NULL DEFAULT NULL AFTER `payment_status`, ADD `address` VARCHAR(200) NULL DEFAULT NULL AFTER `payment_method`, ADD `city` VARCHAR(200) NULL DEFAULT NULL AFTER `address`, ADD `state` VARCHAR(200) NULL DEFAULT NULL AFTER `city`; 
+
+
+ALTER TABLE `orders` ADD `country` VARCHAR(200) NULL DEFAULT NULL AFTER `date`;

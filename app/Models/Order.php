@@ -13,9 +13,15 @@ class Order extends Model
     protected $fillable =[
         'user_id',
         'status',
-        'payment_status',
+        'payment_status', 
+        'payment_method',
         'date',
-        'totalamount',
+        'totalamount', 
+        'address',
+        'city', 
+        'state',
+        'country',
+      
  ]; 
 
  public function orderItemsDetails(): HasMany
