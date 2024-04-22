@@ -52,11 +52,11 @@ class ProductController extends Controller
     } 
 
 
-    public function getProducts($product_id)
+    public function getProductDetails($product_id)
     {
         try {
             // Fetch products based on the category ID
-            $products = Product::where('id', $product_id)->get();
+            $products = Product::with('categories','subcategories','brand')->where('id', $product_id)->get();
 
             // Check if any products are found
             if ($products->isEmpty()) {
