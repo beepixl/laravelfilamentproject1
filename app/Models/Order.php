@@ -20,7 +20,7 @@ class Order extends Model
 
  public function orderItemsDetails(): HasMany
  {
-     return $this->hasMany(OrderItems::class,'order_id');
+     return $this->hasMany(OrderItems::class,'order_id')->with('product');
  }
   
  public function orderPayment(): HasMany

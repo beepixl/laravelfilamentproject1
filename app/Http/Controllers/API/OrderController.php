@@ -17,13 +17,15 @@ class OrderController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
             'status' => 'required',
+            'item_id' =>'required',
+            'quantity' =>'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->messages()->first()], 403);
         }
         if ($request->status === 'draft') {
-            $existingOrder = Order::where('status', 'draft')->first();
+            $existingOrder = Order::where('status', 'draft')->where('user_id',$request->user_id)->first();
             if ($existingOrder) {
                 $order = $existingOrder;
             } else {
