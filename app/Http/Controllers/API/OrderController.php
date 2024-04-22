@@ -15,7 +15,6 @@ class OrderController extends Controller
     public function createCart(Request $request)
     {
         $validator = Validator::make($request->all(), [
-
             'user_id' => 'required',
             'status' => 'required',
         ]);
