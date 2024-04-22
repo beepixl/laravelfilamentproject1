@@ -73,7 +73,7 @@ class HomeController extends Controller
             $responseData = ['brands' => $brands,'products' => $products, 'categories' => $categories];
 
 
-            if ($brands->isEmpty() || $products->isEmpty() || $categories->isEmpty()) {
+            if ($brands->isEmpty() && $products->isEmpty() && $categories->isEmpty()) {
                 return response()->json(['error' => 'No data found'], 404);
             }
 

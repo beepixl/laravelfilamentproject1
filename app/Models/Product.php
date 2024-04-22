@@ -18,7 +18,7 @@ class Product extends Model
         'sub_category_id',
         'price',
         'description',
-        'photo', 
+        'photo',
         'brand_id'
      
     ];
